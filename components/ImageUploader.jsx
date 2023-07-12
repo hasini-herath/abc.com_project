@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import styles from "@styles/globals.css"
 
@@ -38,7 +39,7 @@ export default function Home() {
           <p>
             <input type="file" name="file" />
           </p>          
-          <img src={imageSrc} />          
+          <img className='image_upload' src={imageSrc} />          
           {imageSrc && !uploadData && (
             <p>
               <button>Upload Files</button>
