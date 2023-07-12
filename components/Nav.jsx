@@ -60,7 +60,7 @@ const Nav = () => {
             <Link href='/content/list' className="nav-links"
                   onClick={handleClose}>RoomList
                 </Link>
-                <Link href='/content/new' className="nav-links"
+                <Link href='/dashboard' className="nav-links"
                   onClick={handleClose}>Dashboard
                 </Link>
            
