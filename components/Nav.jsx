@@ -49,24 +49,25 @@ const Nav = () => {
       <Box className="test" >
       {session?.user ? (
           <Box >
-            <Link href="/" className="nav-links">
-               Test   
+             <Link href='/' className="nav-links"
+                  onClick={handleClose}>Home
+                </Link>
+            <Link href="/create-prompt" className="nav-links">
+               Create Post     
             </Link>
 
             
-            <Link href='/room/list' className="nav-links"
+            <Link href='/content/list' className="nav-links"
                   onClick={handleClose}>RoomList
                 </Link>
-                <Link href='/room/new' className="nav-links"
-                  onClick={handleClose}>Room
+                <Link href='/content/new' className="nav-links"
+                  onClick={handleClose}>Dashboard
                 </Link>
-                <Link href='/' className="nav-links"
-                onClick={handleClose}>Test
+           
+                <Link href='/service' className="nav-links"
+                onClick={handleClose}>Service
                 </Link>
-                <Link href='/' className="nav-links"
-                onClick={handleClose}>Test
-                </Link>
-                <Link href='/' className="nav-links"
+                <Link href='/table' className="nav-links"
                    onClick={handleClose}>Test
                 </Link>
            <Button className='signout_btn' onClick={signOut} >
@@ -77,50 +78,45 @@ const Nav = () => {
 
         ) : (
           <>
-              {providers &&
-              Object.values(providers).map((provider) => (
-                <Button 
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id);
-                  }}
-                  className='black_btn'
-                >
-                  Sign in
+
+          
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Home
+                </Link>
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Contact Us
+                </Link>
+                <Link href='/' className="nav-links"
+                onClick={handleClose}>About
+                </Link>
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Booking
+                </Link>
+              
+                <Button  href='/register' className='register_btn' >
+                  Register
                 </Button>
-              ))}
+                <Button href='/login' className='signout_btn' >
+                  Login
+                </Button>
+            
+              {/* {providers &&
+              Object.values(providers).map((provider) => (
+                <Button className='signout_btn'
+                key={provider.name}
+                onClick={() => {
+                  signIn(provider.id);
+                }}
+                
+              >
+                Sign in
+              </Button>
+              ))} */}
           </>
         )}
       </Box>
 
-      <div >
-      {session?.user ? (
-          <Box >
-        
-      
-          
-          
-         
-          </Box>
-        ) : (
-          <>
-              {providers &&
-              Object.values(providers).map((provider) => (
-                <Button 
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id);
-                  }}
-                 
-                >
-                  Sign in
-                </Button>
-              ))}
-          </>
-        )}
-        
-      </div>
-      
+ 
     
     </Box>  
     </div>

@@ -3,15 +3,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-margin-top: 20px;
+  margin-top: 20px;
   color: rgb(0, 0, 0);
 }
 .maintitle{
-  color: rgb(0, 0, 0);
+  color: rgb(251, 251, 251);
   align-items:center;
   font-weight: bold;
   font-family: monospace;
-font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 .subtitle{
   
@@ -26,6 +26,7 @@ font-size: 3.5rem;
 .description {
   font-weight: 400;
   margin: 10px;
+  color: #f0f0f0;
 }
 
 
@@ -88,14 +89,27 @@ font-size: 3.5rem;
 
 
 /* Nav Bar */
+.hero{
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+.hero-text{
+  position: absolute;
+  top: 30%;
+  /* left: 50%;
+  transform: translate(-15%, -50%); */
+  width: 100%;
+  text-align: center;
+}
+
 .app-bar{
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,.25);
-  width: 95%;
+  width: 90%;
   height: 60px;
   border-radius: 13px;
   position: fixed;
@@ -107,6 +121,7 @@ font-size: 3.5rem;
 }
 
 .nav-links{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   color: #222;
   font-size: 1.2rem;
@@ -126,6 +141,8 @@ white-space: nowrap;
 
 
 .logo{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   text-decoration: none;
   color: #0b5275;
   font-size: 1.4rem;
@@ -146,12 +163,28 @@ white-space: nowrap;
   padding-top: 20px;
 }
 
-
-.signout_btn{
-  color: #ffffff;
-  font-weight: bold;
-  background-color: #0b5275;
+.register_btn{
   padding-right: 10px;
+  margin-right: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white; 
+  color: #2F80ED; 
+  border: 2px solid #2F80ED;
+}
+.register_btn:hover{
+  background-color: #0b5275;
+}
+.signout_btn{
+
+  color: #ffffff;
+  font-size: medium;
+  background-color: #2F80ED;
+  padding-right: 10px;
+  margin-right: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.signout_btn:hover{
+  background-color: #0b5275;
 }
 
 /* Room */
@@ -231,4 +264,128 @@ border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, 41rem); /* Two columns with equal width */
   grid-gap: 20px;
+}
+.google_login{
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  padding: 5px 80px 5px 80px;
+  background-color: white; 
+  border: 2px solid #dbdee2;
+  cursor: pointer;
+  margin-top:5%;
+  margin-bottom: 10%;
+ 
+}
+.google_login:hover{
+  background-color: #dde0e3;
+}
+.google_title {
+  color: #000000;
+  display: flex;
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  padding-top: 15px;
+
+}
+
+.google_logo {
+  font-size: 20px;
+  margin-right: 20px;
+  color: white;
+  background-color: #000000;
+  padding: 5px 5px 5px 5px;
+  border-radius: 3px;
+}
+.signup_form {
+  margin: auto;
+  width: 30%;
+  border: 2px solid #ffffff;
+  
+  margin-top: 5%;
+
+}
+.form_register{
+  display: flex;
+  flex-direction: column;
+
+}
+.register_fields{
+ background-color: #f6f6f6;
+  margin-bottom: 20px;
+}
+.signup_title{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+}
+.signup_label{
+  font-weight: bold;
+  margin-bottom: 3%;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.signin_btn{
+margin-top: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: #f0f0f0;
+  background-color: #2F80ED; 
+
+}
+
+.center_title{
+  text-align: center;
+  margin-top: 5%;
+}
+.forgot_password{
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: medium;
+font-weight: 500;
+}
+
+.footer{
+  padding: 4rem 6rem ;
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+}
+
+.bottom{
+  padding-top: 2rem;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.bottom_content{
+  display: flex;
+  flex-direction: column;
+}
+.typography{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 1rem 0 0.8rem 0;
+}
+.bottom_link{
+  text-decoration: none;
+  color:#000000;
+  padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+.footer_end{
+  background-color: #e7e9ea;
+height: 2rem;
+  text-align: right;
+}
+
+.footer_title{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  font-size: 2rem;
 }

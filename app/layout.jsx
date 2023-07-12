@@ -1,6 +1,7 @@
 "use client";
 
 import Nav from "@components/Nav";
+import Footer from "@components/Footer";
 import Provider from "@components/Provider";
 import Box from '@mui/material/Box';
 export const metadata = {
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         </main>
         </Provider>
         </Box>
+        <Footer/>
         </body>
+       
     </html>
   )
 }

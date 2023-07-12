@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -70,7 +71,7 @@ const Feed = () => {
 
   return (
     <section >
-         <Box textAlign="center">
+         <Box textAlign="center" marginTop={5}>
       <TextField
        sx={{ width: '500px' }}
         type='text'
