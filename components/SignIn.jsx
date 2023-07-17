@@ -37,7 +37,7 @@ export default function Form(){
   <>
 <Typography className="signup_form">
 <Typography  className="signup_title">
-         Sign Up
+         Sign In
       </Typography>
       <form className="form_register" >
       <label  required className="signup_label">E-mail</label>
