@@ -16,18 +16,14 @@ export default function BasicTable() {
     setAllPosts(data);
   };
   const columns = [
-    { field: 'title', headerName: 'title', width: 130 },
-    { field: 'overview', headerName: 'Overview', width: 130, },
-    { field: 'description', headerName: 'Description', width: 130 },
-    { field: 'room_type', headerName: 'room_type', width: 130 },
-    { field: 'size', headerName: 'Size', width: 130 },
-    { field: 'bed_description', headerName: 'Bed Description', width: 130 },
-    { field: 'amenities', headerName: 'Amenities', width: 130 },
-    { field: 'number_guest', headerName: 'Number Guest', width: 130 },
-    { field: 'standard_price', headerName: 'Standard Price', width: 130 },
-    { field: 'additional_charges', headerName: 'Additional Charges', width: 130 },
-    { field: 'status', headerName: 'Status', width: 130 },
-    { field: 'terms_conditions', headerName: 'terms_conditions', width: 130 },
+    { field: 'content_type', headerName: 'content_type', width: 150 },
+    { field: 'title', headerName: 'title', width: 150 },
+    { field: 'overview', headerName: 'Overview', width: 150, },
+    { field: 'description', headerName: 'Description', width: 150 },
+    { field: 'standard_price', headerName: 'Standard Price', width: 150 },
+    { field: 'additional_charges', headerName: 'Additional Charges', width: 150 },
+    { field: 'status', headerName: 'Status', width: 150 },
+    { field: 'terms_conditions', headerName: 'terms_conditions', width: 150 },
 
 
   ];
@@ -42,8 +38,8 @@ export default function BasicTable() {
     <>
 <div>
 
-<Button href='/room/new' className='addbtn' >
-     + Add Room
+<Button href='/content/new' className='addbtn' >
+     + Add Content
     </Button>
 </div>
 
@@ -52,15 +48,11 @@ export default function BasicTable() {
       
        <DataGrid className="datagrid"
          rows={allPosts?.map((post) => ({
-          id: post._id,
+          id: post._id,          
+          content_type: post.content_type,
           title: post.title,
           overview: post.overview,
           description: post.description,
-          room_type: post.room_type,
-          size: post.size,
-          bed_description: post.bed_description,
-          amenities: post.amenities,
-          number_guest: post.number_guest,
           standard_price: post.standard_price,
           additional_charges: post.additional_charges,
           status: post.status,

@@ -4,6 +4,21 @@ import { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import PromptCard from "./PromptCard";
+
+const PromptCardList = ({ data, handleTagClick }) => {
+  return (
+    <div className='feed'>
+      {data.map((post) => (
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+        />
+      ))}
+    </div>
+  );
+};
 
 const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
@@ -56,20 +71,18 @@ const Feed = () => {
 
   return (
     <section >
-         <Box textAlign="center" marginTop={5}>
-      <TextField
-       sx={{ width: '500px' }}
-        type='text'
-        placeholder='Search for a tag or a username'
-        value={searchText}
-        onChange={handleSearchChange}
-        required
-        className='search_input peer'
-      />
-    </Box>
+         <Typography className="home_content_title" >
+    abc.com Article
+    </Typography>
 
       {/* All Prompts */}
-     
+      <Box>
+      {searchText ? (
+        <PromptCardList data={searchedResults} handleTagClick={handleTagClick} />
+      ) : (
+        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+      )}
+    </Box>
     </section>
   );
 };

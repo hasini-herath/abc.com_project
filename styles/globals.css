@@ -30,58 +30,38 @@
 }
 
 
-/* prompt card */
-.prompt-card{
+/* article card */
+.article-card{
   flex: 1;
   margin-bottom: 10px;
   break-inside: avoid;
   border-radius: 0.5rem;
   border-width: 1px;
   border-style: solid;
-  border-color: #D1D5DB;
-  background-clip: padding-box;
-  padding: 1.5rem;
-  padding-bottom: 1rem;
-  backdrop-filter: blur(16px);
-  height: fit-content;
-  background-color: rgb(240, 240, 240);
+  border-color: #6f94cd;
+  padding: 30px 30px 30px 30px;
+  width: fit-content;
 }
-
-.prompt-icon{
-  display: flex;
-  justify-content: "space-between";
-  align-items: center;
-  margin-left: 6px,
-}
-.prompt-click{
-  display: flex;
-  justify-content: start;
-  align-items:center;
-  margin-left: 5px;
-  cursor:pointer;
-}
-
-.prompt-name{
-  display:flex;
-   flex-direction:column;
-   font-family:monospace;
-   margin-left: 10px;
-
-}
-
-.prompt-tag{
-  font-family: 'Courier New', Courier, monospace;
+.article_owner{
+  text-align:right;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  
-  color:gray;
-  cursor:pointer;
-  display:inline;
-  
 }
-.prompt-tag:hover{
-  text-decoration:underline;
-  cursor:pointer;
+.article_content{
+  background-color: #e3e8ed;
 }
-
+.article_title{
+  text-align:center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.article_des{
+  text-align:center;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .flex{
   display: flex;
   flex-direction: row;
@@ -136,6 +116,12 @@ font-weight: bold;
   z-index: 9999;
   margin-bottom: 40px;
 }
+.sub_nav_app{
+  background-color: rgb(248, 246, 246);
+  padding: 5rem 0px 5rem 0px;
+  position: fixed;
+  margin-top: 5%;
+}
 
 .nav-links{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -146,7 +132,24 @@ font-weight: 600;
 padding: 0.7rem 1rem;
 white-space: nowrap;
 }
-
+.sub_nav-links{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: #2F80ED;
+  font-size: 1.2rem;
+font-weight: 600;
+padding: 0.7rem 1rem;
+margin-bottom: 30px;
+white-space: nowrap;
+text-align: left;
+}
+.sub_home_content{
+  display: flex;
+  flex-direction: row;
+}
+.sub_home{
+ margin: auto;
+}
 .button {
   display: inline-block;
   padding: 2px 10px;
@@ -235,7 +238,13 @@ border-radius: 10px;
   flex-direction: row;
   
 }
-
+.sub_addbtn{
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #2ca1db;
+  width: 100%;
+  margin: auto;
+}
 .room_addbtn{
   color: #ffffff;
   font-weight: bold;
@@ -322,6 +331,21 @@ border-radius: 10px;
   
   margin-top: 5%;
 
+}
+
+.sub_form{
+  margin: auto;
+  width: 60%;
+  border: 2px solid #ffffff;
+  
+}
+#secret {
+  display: none;
+}
+.sub_nav_form{
+ 
+  display: flex;
+  flex-direction: column;
 }
 .form_register{
   display: flex;

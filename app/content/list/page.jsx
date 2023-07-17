@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 
-import Room from "@components/Room/RoomList";
+import Room from "@components/Content/ContentList";
 
 const MyProfile = () => {
 

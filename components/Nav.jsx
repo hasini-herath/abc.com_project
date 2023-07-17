@@ -52,23 +52,20 @@ const Nav = () => {
              <Link href='/' className="nav-links"
                   onClick={handleClose}>Home
                 </Link>
-            <Link href="/create-prompt" className="nav-links">
-               Create Post     
-            </Link>
+            
 
             
             <Link href='/content/list' className="nav-links"
-                  onClick={handleClose}>RoomList
+                  onClick={handleClose}>Content
                 </Link>
                 <Link href='/dashboard' className="nav-links"
                   onClick={handleClose}>Dashboard
                 </Link>
-           
-                <Link href='/service' className="nav-links"
-                onClick={handleClose}>Service
+                <Link href='/' className="nav-links"
+                onClick={handleClose}>About
                 </Link>
-                <Link href='/table' className="nav-links"
-                   onClick={handleClose}>Test
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Contact Us
                 </Link>
            <Button className='signout_btn' onClick={signOut} >
               Sign Out

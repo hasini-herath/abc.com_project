@@ -34,11 +34,16 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
           <Grid item xs={12} >
             <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
-                <NativeSelect
-                  id='content_type'
-                  value={post.content_type}
-                  onChange={(e) => (handleshowhide(e)) }
-                >
+                
+                
+              <NativeSelect
+ value={post.content_type}
+ id="content_type"
+  onChange={(e) => {
+    setPost({ ...post, content_type: e.target.value });
+    handleshowhide(e);
+  }}
+>
                   <option value=''>--Select Content Type--</option>
                   <option value='room'>Room</option>
                   <option value='meal'>Meal</option>
@@ -96,7 +101,7 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
             showhide === 'room' && (
               <div className="grid-container">
                 <TextField
-                  required
+             
                   id="room_type"
                   value={post.room_type}
                   onChange={(e) => setPost({ ...post, room_type: e.target.value })}
@@ -106,8 +111,19 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   autoComplete="shipping address-line2"
                   variant="standard"
                 />
+                 <TextField
+                 
+                 id="size"
+                 value={post.size}
+                 onChange={(e) => setPost({ ...post, size: e.target.value })}
+                 name="size"
+                 label="size"
+                 fullWidth
+                 autoComplete="shipping address-line2"
+                 variant="standard"
+               />
                     <TextField
-                  required
+                 
                   id="size"
                   value={post.size}
                   onChange={(e) => setPost({ ...post, size: e.target.value })}
@@ -118,7 +134,7 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-                  required
+                
                   id="bed_description"
                   value={post.bed_description}
                   onChange={(e) => setPost({ ...post, bed_description: e.target.value })}
@@ -129,7 +145,7 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-                  required
+               
                   id="amenities"
                   value={post.amenities}
                   onChange={(e) => setPost({ ...post, amenities: e.target.value })}
@@ -140,7 +156,7 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-                  required
+             
                   id="number_guest"
                   value={post.number_guest}
                   onChange={(e) => setPost({ ...post, number_guest: e.target.value })}
