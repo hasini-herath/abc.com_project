@@ -9,8 +9,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import { signIn, useSession, getProviders } from 'next-auth/react';
 import Home from "@app/page";
 
+const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
 
-export default function Form(){
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
  
@@ -39,28 +39,35 @@ export default function Form(){
 <Typography  className="signup_title">
          Sign In
       </Typography>
-      <form className="form_register" >
-      <label  required className="signup_label">E-mail</label>
-      <TextField className="register_fields"
-        size="small"
-         
-          id="outlined-required"
-          label="abc@gmail.com"
-        />
-         <label  required className="signup_label">Password</label>
-      <TextField className="register_fields"
-           size="small"
-          id="outlined-required"
-          label="**********"
-        />
-             <Link className="forgot_password">
-    Forgot Password
-      </Link>
-
-<Button className="signin_btn">
-  Continue with E-mail
-</Button>
-</form>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={post.email}
+            onChange={(e) => setPost({ ...post, email: e.target.value })}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={post.password}
+            onChange={(e) => setPost({ ...post, password: e.target.value })}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
+        >
+          {submitting ? `${type}ing...` : type}
+        </button>
+      </form>
       
 <Typography className="center_title">
       
@@ -94,4 +101,5 @@ export default function Form(){
 
     </Typography>
   );
-}
+};
+export default SignIn;

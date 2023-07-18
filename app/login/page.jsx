@@ -1,10 +1,54 @@
-import React from 'react'
-import Signin from '@components/SignIn'
 
-const page = () => {
+"use client";
+import { useState } from "react";
+import SignIn from "@components/SignIn";
+import { useRouter } from "next/navigation";
+
+
+
+const ParentComponent = () => {
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+  const [post, setPost] = useState({ email: "", password: "" });
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: post.email,
+          password: post.password,
+        }),
+      });
+
+      if (response.ok) {
+        // Handle successful login here, e.g., redirect to dashboard page
+        router.push("/");
+        console.log("Login successful");
+      } else {
+        console.log("Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
-    <Signin />
-  )
-}
+    <div>
+      <h1>Login Page</h1>
+      <SignIn
+        type="Login"
+        post={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={handleSubmit}
+      />
+    </div>
+  );
+};
 
-export default page
+export default ParentComponent;

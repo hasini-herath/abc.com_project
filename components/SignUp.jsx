@@ -1,80 +1,44 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import GoogleIcon from '@mui/icons-material/Google';
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+import Link from "next/link";
 
-export default function Form(){
-  const { data: session } = useSession();
-  const [providers, setProviders] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      const res = await getProviders();
-      setProviders(res);
-    })();
-  }, []);
-
+const SignUp = ({ type, post, setPost, submitting, handleSubmit }) => {
+ 
   return (
-    <section className="signup_form">
+    <div>
+      <h1>Register</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={post.email}
+            onChange={(e) => setPost({ ...post, email: e.target.value })}
 
-<Typography  className="signup_title">
-         Sign Up
-      </Typography>
-      <form className="form_register" >
-      <label  required className="signup_label">E-mail</label>
-      <TextField className="register_fields"
-        size="small"
-         
-          id="outlined-required"
-          label="abc@gmail.com"
-        />
-         <label  required className="signup_label">Password</label>
-      <TextField className="register_fields"
-           size="small"
-          id="outlined-required"
-          label="**********"
-        />
-             <Typography>
-      <Checkbox className="checkbox"/>
-      I accept the <Link>Terms of Service</Link> & <Link> Privacy Policy</Link>
-      </Typography>
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={post.password}
+            onChange={(e) => setPost({ ...post, password: e.target.value })}
 
-<Button className="signin_btn">
-  Continue with E-mail
-</Button>
-
-<Typography className="center_title">
-      
-      ---- or use one of these options ----
-      </Typography>
-
-      <div className="google_login">
-          <GoogleIcon className='google_logo' />
-
-        {providers &&
-              Object.values(providers).map((provider) => (
-                <Button  className='google_title'
-                
-                key={provider.name}
-                onClick={() => {
-                  signIn(provider.id);
-                }}
-                
-              >
-             Continue with google
-           
-              </Button>
-              ))}</div>
+            required
+          />
+        </div>
+        <button
+            type='submit'
+            disabled={submitting}
+            className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
+          >
+            {submitting ? `${type}ing...` : type}
+          </button>
       </form>
-      
-    </section>
+    </div>
   );
-}
+};
+export default SignUp;
