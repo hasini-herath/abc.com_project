@@ -66,6 +66,7 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
           className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
         >
           {submitting ? `${type}ing...` : type}
+          
         </button>
       </form>
       
