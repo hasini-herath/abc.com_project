@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
-let Customer;
+let People;
 
 try {
   // Try to retrieve the existing model to avoid recompiling
-  Customer = mongoose.model("Customer");
+  People = mongoose.model("People");
 } catch (error) {
   // If the model doesn't exist, create a new one
-  const customerSchema = new mongoose.Schema({
+  const peopleSchema = new mongoose.Schema({
     email: {
       type: String,
       required: true,
@@ -19,23 +19,25 @@ try {
     },
   });
 
-  customerSchema.statics.findByCredentials = async function (email, password) {
-    const customer = await this.findOne({ email });
+  peopleSchema.statics.findByCredentials = async function (email, password) {
+    const people = await this.findOne({ email });
 
-    if (!customer) {
+    if (!people) {
       throw new Error("Invalid credentials");
     }
 
     // You should implement a function to verify the password (e.g., bcrypt.compare)
     // For simplicity, let's assume the password is stored in plain text.
-    if (customer.password !== password) {
+    if (people.password !== password) {
       throw new Error("Invalid credentials");
     }
 
-    return customer;
+    return people;
   };
 
-  Customer = mongoose.model("Customer", customerSchema);
+  People = mongoose.model("People", peopleSchema);
 }
 
-export default Customer;
+export default People;
+
+

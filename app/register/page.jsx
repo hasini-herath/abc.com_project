@@ -28,7 +28,7 @@ const RegisterPage = () => {
       });
 
       if (response.ok) {
-        router.push("/login");
+        router.push("/");
       }
     } catch (error) {
       console.log(error);

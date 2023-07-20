@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 
 const ParentComponent = () => {
   const router = useRouter();
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({ email: "", password: "" });
 
-  const handleSubmit = async () => {
-    setSubmitting(true);
-console.log("submit function started")
+  const createPrompt = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -23,21 +23,14 @@ console.log("submit function started")
       });
    
       if (response.ok) {
-       
-        // Handle successful login here, e.g., redirect to dashboard page
         router.push("/");
-        console.log("Login successful");
-      } else {
-        console.log("Login failed");
       }
     } catch (error) {
-      console.log("error function"+error);
-      console.error("Error during login:", error);
+      console.log(error);
     } finally {
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   };
-
   return (
     <div>
       <h1>Login Page</h1>
@@ -46,7 +39,7 @@ console.log("submit function started")
         post={post}
         setPost={setPost}
         submitting={submitting}
-        handleSubmit={handleSubmit}
+        handleSubmit={createPrompt}
       />
     </div>
   );

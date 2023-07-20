@@ -1,5 +1,5 @@
 "use client";
-
+import Box from '@mui/material/Box';
 import React, { useState, useEffect } from "react";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -80,17 +80,16 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         {providers &&
               Object.values(providers).map((provider) => (
-                <Button className='google_title'
                 
-                key={provider.name}
-                onClick={() => {
-                  signIn(provider.id);
-                }}
                 
-              >
-             Continue with google
-           
-              </Button>
+             <Box className="center_title">
+      
+      ---- or use one of these options ----
+<Button></Button>
+
+      </Box>
+
+            
               ))}</div>
               <Typography className="center_title">
       

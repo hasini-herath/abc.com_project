@@ -1,32 +1,30 @@
-import User from "@models/customer";
+import Customer from "@models/customer";
 import { connectToDB } from "@utils/database";
 
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  await connectToDB();
-
-  const { email, password } = req.body;
-
+export const POST = async (request) => {
   try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-      
-    }
+    const { email, password } = await request.json();
+    console.log("email, password:", email, password);
 
-    const isPasswordValid = await compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid password' });
-    }
+    await connectToDB();
+    console.log("login successful");
 
-    // Password is valid, you can generate and return a JWT token for authentication here if needed.
-    res.status(200).json({ message: 'Login successful' });
-  } catch (error) {
-    console.error('Error during login:', error.message);
-    res.status(500).json({ error: 'Internal server error' });
+    // Assuming Customer model has a method to find a customer by email and password
+    const existingCustomer = await Customer.findByCredentials(email, password);
+    console.log("login successful1");
+    if (!existingCustomer) {
+      return new Response("Invalid email or password", { status: 401 });
+     
+    }
+    console.log("login successful2");
+    return new Response(JSON.stringify(existingCustomer), { status: 200 });
+   
+  } 
+  
+  catch (error) {
+    console.log("Error:", error);
+    return new Response("Failed to log in", { status: 500 });
+;
   }
-}
+
+};

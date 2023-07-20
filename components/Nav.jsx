@@ -99,18 +99,6 @@ const Nav = () => {
                   Login
                 </Button>
             
-              {/* {providers &&
-              Object.values(providers).map((provider) => (
-                <Button className='signout_btn'
-                key={provider.name}
-                onClick={() => {
-                  signIn(provider.id);
-                }}
-                
-              >
-                Sign in
-              </Button>
-              ))} */}
           </>
         )}
       </Box>
