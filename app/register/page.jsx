@@ -36,7 +36,6 @@ const RegisterPage = () => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <Signup
       type='Create'
