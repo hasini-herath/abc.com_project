@@ -13,8 +13,8 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
 
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
- 
- 
+
+
   useEffect(() => {
     (async () => {
       const res = await getProviders();
@@ -24,81 +24,78 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
 
   return (
 
-<Typography >
-
-{session?.user ? (
-<>
-<Home/>
-</>
-
-
-) : (
-    
-  <>
-<Typography className="signup_form">
-<Typography  className="signup_title">
-         Sign In
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={post.email}
-            onChange={(e) => setPost({ ...post, email: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={post.password}
-            onChange={(e) => setPost({ ...post, password: e.target.value })}
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={submitting}
-          className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
-        >
-          {submitting ? `${type}ing...` : type}
-          
-        </button>
-      </form>
-      
-<Typography className="center_title">
-      
-      ---- or use one of these options ----
-      </Typography>
-
-      <div className="google_login">
-          <GoogleIcon className='google_logo' />
-
-        {providers &&
+    <Typography >
+      {session?.user ? (
+        <>
+          <Home />
+        </>
+      ) : (
+        <>
+          <Typography className="signup_form">
+            <Typography className="signup_title">
+              Sign In
+            </Typography>
+            {providers &&
               Object.values(providers).map((provider) => (
-                
-                
-             <Box className="center_title">
-      
-      ---- or use one of these options ----
-<Button></Button>
+                <Box>
+                  <form onSubmit={handleSubmit} className="form_register">
+                    <div>
+                      <label className="signup_label" htmlFor="email">Email:</label>
+                      <TextField className="register_fields"
+                        size="small"
+                        type="email"
+                        id="email"
+                        fullWidth
+                        value={post.email}
+                        onChange={(e) => setPost({ ...post, email: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="password" className="signup_label">Password:</label>
+                      <TextField className="register_fields"
+                        size="small"
+                        type="password"
+                        id="password"
+                        fullWidth
+                        value={post.password}
+                        onChange={(e) => setPost({ ...post, password: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <Link className="forgot_password">
+                      Forgot Password
+                    </Link>
 
-      </Box>
-
-            
-              ))}</div>
-              <Typography className="center_title">
-      
-      Don't have an account? <Link>SignUp</Link> 
-      </Typography>
-      </Typography></>
-
-)}
-
+                    <Button
+                      type="submit"
+                      disabled={submitting}
+                      className="signin_btn"
+                    >
+                      {submitting ? `${type}ing...` : type}
+                      
+                    </Button>
+                  </form>
+                  <Typography className="center_title">
+                    ---- or use one of these options ----
+                  </Typography>
+                  <div className="google_login">
+                    <GoogleIcon className='google_logo' />
+                    <Button className='google_title'
+                      key={provider.name}
+                      onClick={() => {
+                        signIn(provider.id);
+                      }}
+                    >
+                      Continue with google
+                    </Button></div>
+                </Box>
+              ))}
+            <Typography className="center_title">
+              Don't have an account? <Link>SignUp</Link>
+            </Typography>
+          </Typography></>
+      )}
     </Typography>
   );
 };
