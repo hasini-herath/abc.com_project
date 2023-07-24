@@ -61,6 +61,9 @@ const Nav = () => {
                 <Link href='/dashboard' className="nav-links"
                   onClick={handleClose}>Dashboard
                 </Link>
+                <Link href='/image' className="nav-links"
+                  onClick={handleClose}>Image
+                </Link>
                 <Link href='/' className="nav-links"
                 onClick={handleClose}>About
                 </Link>
