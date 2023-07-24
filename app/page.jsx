@@ -1,7 +1,6 @@
 "use client";
 import "@styles/globals.css"
 import Feed from "@components/Feed";
-import ImageUploader from "@components/ImageUploader";
 import RoomContent from "@components/RoomContent";
 import ArticleContent from "@components/ArticleContent";
 import MealContent from "@components/MealContent";
