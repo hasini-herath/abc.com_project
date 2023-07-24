@@ -33,7 +33,7 @@ const ParentComponent = () => {
   };
   return (
     <div>
-      <h1>Login Page</h1>
+     
       <SignIn
         type="Login"
         post={post}

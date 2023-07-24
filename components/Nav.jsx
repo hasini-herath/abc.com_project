@@ -89,9 +89,6 @@ const Nav = () => {
                 <Link href='/' className="nav-links"
                   onClick={handleClose}>Booking
                 </Link>
-                <Link href='/' className="nav-links"
-                  onClick={handleClose}>Booking
-                </Link>
                 <Button  href='/register' className='register_btn' >
                   Register
                 </Button>
