@@ -14,9 +14,9 @@ const RoomCard = ({ post}) => {
   const handleButtonClick = () => {
     console.log(post);
 
-    if (post._id === session?.user.id) return router.push("/profile");
+    if (post._id === session?.user.id) return router.push("/content/contentdetails/room");
     console.log("post");
-    router.push(`/profile/${post._id}?name=${post}`);
+    router.push(`/content/contentdetails/room/${post._id}?name=${post}`);
   };
   
   return (
@@ -37,24 +37,7 @@ const RoomCard = ({ post}) => {
         <Typography className="article_des">
           {post.overview}
         </Typography>
-        <Typography className="article_des">
-          {post.description}dd
-        </Typography>
-        <Typography className="article_des">
-          {post.standard_price}
-          
-        </Typography>
-        <Typography className="article_des">
-          {post.additional_charges}
-          
-        </Typography>
-        <Typography className="article_des">
-          {post.terms_conditions}oo
-          
-        </Typography>
-        <Typography className="article_des">
-          {post.room_type}          
-        </Typography>
+     
         </Box>
      
      

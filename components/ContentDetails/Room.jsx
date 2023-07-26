@@ -1,5 +1,5 @@
 'use client';
-import RoomCard from "@components/HomeContent/RoomCard";
+import RoomCard from "@components/ContentDetails/RoomCard";
 
 const Profile = ({ name, desc, data, }) => {
   return (

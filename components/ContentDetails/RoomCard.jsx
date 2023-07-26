@@ -18,19 +18,18 @@ const RoomCard = ({ post}) => {
     console.log("post");
     router.push(`/content/contentdetails/room/${post._id}?name=${post}`);
   };
-
   
   return (
     <>
-      <Box className="content_content">
-       <Box>
+      <Box className="article_content">
+       
           <Image className="hero1"
       src={service2}
       alt='user_image'
     />  
- </Box>
+ 
         
-        <Box className='content_box'>
+        
         <Typography onClick={handleButtonClick} className="article_title">
           {post.title}
         </Typography>
@@ -38,7 +37,24 @@ const RoomCard = ({ post}) => {
         <Typography className="article_des">
           {post.overview}
         </Typography>
-        </Box>
+        <Typography className="article_des">
+          {post.description}dd
+        </Typography>
+        <Typography className="article_des">
+          {post.standard_price}
+          
+        </Typography>
+        <Typography className="article_des">
+          {post.additional_charges}
+          
+        </Typography>
+        <Typography className="article_des">
+          {post.terms_conditions}oo
+          
+        </Typography>
+        <Typography className="article_des">
+          {post.room_type}          
+        </Typography>
         </Box>
      
      
