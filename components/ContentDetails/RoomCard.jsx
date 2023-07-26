@@ -30,25 +30,25 @@ const RoomCard = ({ post}) => {
  
         
         
-        <Typography onClick={handleButtonClick} className="article_title">
+        <Typography onClick={handleButtonClick} >
           {post.title}
         </Typography>
 
-        <Typography className="article_des">
+        <Typography >
           {post.overview}
         </Typography>
-        <Typography className="article_des">
-          {post.description}dd
+        <Typography >
+          {post.description}
         </Typography>
-        <Typography className="article_des">
+        <Typography >
           {post.standard_price}
           
         </Typography>
-        <Typography className="article_des">
+        <Typography >
           {post.additional_charges}
           
         </Typography>
-        <Typography className="article_des">
+        <Typography >
           {post.terms_conditions}oo
           
         </Typography>

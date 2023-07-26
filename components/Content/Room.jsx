@@ -6,7 +6,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import RoomCard from "@components/Content/RoomCard";
 import Link from '@mui/material/Link';
-
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const RoomCardList = ({ data, handleTagClick }) => {
   return (
@@ -64,7 +66,7 @@ const RoomContent = () => {
       <Box className="flex">
         <Box className="content_left">
           <Box className='content_box_box'>
-            <Typography >
+            <Typography  className="article_des">
               Search By Room Name
             </Typography>
             <TextField className="content_search"
@@ -75,10 +77,12 @@ const RoomContent = () => {
             />
 
           </Box>
+          
         </Box>
 
         {/* All Prompts */}
         <Box >
+          <Box className='flex'>
           <Box className='content_navbar'>
           <Link href='admin/content/list' className="content-links"
                  >Popular
@@ -96,7 +100,29 @@ const RoomContent = () => {
                 <Link href='/' className="content-links"
                >Luxury
                 </Link>
-                </Box>
+            </Box>
+            <Box className='content_sort'>
+            <FormControl fullWidth>
+              <InputLabel variant="standard" >
+                Sort by
+              </InputLabel>
+              <Select 
+              
+              className="content_select"
+              size="small"
+                defaultValue={30}
+               
+              >
+                <option >Available</option>
+                <option >Not Available</option>
+                <option value={30}>Booked</option>
+              </Select>
+            </FormControl>
+            </Box>
+          </Box>
+
+
+
           {searchText ? (
             <RoomCardList data={searchedResults} handleTagClick={handleTagClick} />
           ) : (
