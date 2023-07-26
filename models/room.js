@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
-const RoomSchema = new mongoose.Schema({
+const RoomSchema = new Schema({
   creator: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -106,6 +106,6 @@ const RoomSchema = new mongoose.Schema({
   },
 });
 
-const Room = mongoose.model('Room', RoomSchema);
+const Room = models.Room || model('Room', RoomSchema);
 
-module.exports = Room;
+export default Room;
