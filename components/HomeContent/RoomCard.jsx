@@ -7,7 +7,7 @@ import service2 from '@public/assets/images/room1.jpg'
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import Room from "@models/room";
+
 const RoomCard = ({ post}) => {
   const router = useRouter();
   const { data: session } = useSession();
@@ -31,11 +31,11 @@ const RoomCard = ({ post}) => {
         
         
         <Typography onClick={handleButtonClick} className="article_title">
-          {post.title}aa
+          {post.title}
         </Typography>
 
         <Typography className="article_des">
-          {post.overview}ee
+          {post.overview}
         </Typography>
         <Typography className="article_des">
           {post.description}dd
