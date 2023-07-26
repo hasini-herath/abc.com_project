@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from 'next/image';
 import SubNav from "@components/SubNav";
 
-import Form from "@components/Dashboard/Home";
+import Form from "@components/Admin/Dashboard/Home";
 
 const CreatePrompt = () => {
   const router = useRouter();

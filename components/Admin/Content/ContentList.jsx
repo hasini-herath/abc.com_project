@@ -10,7 +10,7 @@ export default function BasicTable() {
   const [allPosts, setAllPosts] = useState([]);
   
   const fetchPosts = async () => {
-    const response = await fetch("/api/room");
+    const response = await fetch("/api/content");
     const data = await response.json();
 
     setAllPosts(data);
@@ -38,7 +38,7 @@ export default function BasicTable() {
     <>
 <div>
 
-<Button href='/content/new' className='addbtn' >
+<Button href='/admin/content/new' className='addbtn' >
      + Add Content
     </Button>
 </div>

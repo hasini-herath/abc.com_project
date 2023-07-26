@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Form from "@components/Content/Content";
+import Form from "@components/Admin/Content/Content";
 
 
 const Test = () => {
@@ -81,7 +81,7 @@ const Test = () => {
         }];
       }
     
-      const response = await fetch("/api/room/new", {
+      const response = await fetch("/api/content/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -91,7 +91,7 @@ const Test = () => {
     
       console.log("checking room type: " + post.room_type);
       if (response.ok) {
-        router.push("/content/list");
+        router.push("/admin/content/list");
       }
     } catch (error) {
       console.log(error);

@@ -1,10 +1,10 @@
 "use client";
 import "@styles/globals.css"
 import Feed from "@components/Feed";
-import RoomContent from "@components/RoomContent";
-import ArticleContent from "@components/ArticleContent";
-import MealContent from "@components/MealContent";
-import ServiceContent from "@components/ServiceContent";
+import RoomContent from "@components/HomeContent/RoomContent";
+import ArticleContent from "@components/HomeContent/ArticleContent";
+import MealContent from "@components/HomeContent/MealContent";
+import ServiceContent from "@components/HomeContent/ServiceContent";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import img from '@public/assets/images/alla.jpg'

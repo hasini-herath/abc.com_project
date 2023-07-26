@@ -55,15 +55,13 @@ const Nav = () => {
             
 
             
-            <Link href='/content/list' className="nav-links"
+            <Link href='admin/content/list' className="nav-links"
                   onClick={handleClose}>Content
                 </Link>
-                <Link href='/dashboard' className="nav-links"
+                <Link href='admin/dashboard' className="nav-links"
                   onClick={handleClose}>Dashboard
                 </Link>
-                <Link href='/image' className="nav-links"
-                  onClick={handleClose}>Image
-                </Link>
+              
                 <Link href='/' className="nav-links"
                 onClick={handleClose}>About
                 </Link>
@@ -88,6 +86,18 @@ const Nav = () => {
                 </Link>
                 <Link href='/' className="nav-links"
                 onClick={handleClose}>About
+                </Link>
+                <Link href='content/room' className="nav-links"
+                  onClick={handleClose}>Room
+                </Link>
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Meal
+                </Link>
+                <Link href='/' className="nav-links"
+                onClick={handleClose}>Service
+                </Link>
+                <Link href='/' className="nav-links"
+                  onClick={handleClose}>Article
                 </Link>
                 <Link href='/' className="nav-links"
                   onClick={handleClose}>Booking

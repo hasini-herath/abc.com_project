@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 
-import Room from "@components/Content/ContentList";
+import Room from "@components/Admin/Content/ContentList";
 
 const MyProfile = () => {
 
@@ -14,7 +14,7 @@ const MyProfile = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await fetch(`/api/room/${session?.roomId}/post`);
+      const response = await fetch(`/api/content/${session?.roomId}/post`);
       const data = await response.json();
 
       setPost(data);

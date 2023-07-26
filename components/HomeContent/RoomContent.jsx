@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import PromptCard from "./PromptCard";
+import RoomCard from "@components/HomeContent/RoomCard";
+import Link from '@mui/material/Link';
 
-const PromptCardList = ({ data, handleTagClick }) => {
+
+const RoomCardList = ({ data, handleTagClick }) => {
   return (
     <div className='feed'>
       {data.map((post) => (
-        <PromptCard
+        <RoomCard
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
@@ -20,7 +22,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
   );
 };
 
-const Feed = () => {
+const RoomContent = () => {
   const [allPosts, setAllPosts] = useState([]);
 
   // Search states
@@ -29,7 +31,7 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/api/content");
     const data = await response.json();
 
     setAllPosts(data);
@@ -44,23 +46,11 @@ const Feed = () => {
     return allPosts.filter(
       (item) =>
         regex.test(item.creator.username) ||
-        regex.test(item.tag) ||
-        regex.test(item.prompt)
+        regex.test(item.tag)
     );
   };
 
-  const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout);
-    setSearchText(e.target.value);
 
-    // debounce method
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = filterPrompts(e.target.value);
-        setSearchedResults(searchResult);
-      }, 500)
-    );
-  };
 
   const handleTagClick = (tagName) => {
     setSearchText(tagName);
@@ -71,20 +61,21 @@ const Feed = () => {
 
   return (
     <section >
-         <Typography className="home_content_title" >
-    abc.com Article
+             <Typography className="home_content_title" >
+    abc.com Rooms
     </Typography>
 
       {/* All Prompts */}
       <Box>
       {searchText ? (
-        <PromptCardList data={searchedResults} handleTagClick={handleTagClick} />
+        <RoomCardList data={searchedResults} handleTagClick={handleTagClick} />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        <RoomCardList data={allPosts.slice(0, 3)} handleTagClick={handleTagClick} />
       )}
+      <Link>More</Link>
     </Box>
     </section>
   );
 };
 
-export default Feed;
+export default RoomContent;
