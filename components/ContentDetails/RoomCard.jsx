@@ -23,38 +23,54 @@ const RoomCard = ({ post}) => {
     <>
       <Box className="article_content">
        
-          <Image className="hero1"
+          <Image className="content_image"
       src={service2}
       alt='user_image'
     />  
  
-        
-        
-        <Typography onClick={handleButtonClick} >
+        <Box className="content_background">
+
+        <Typography onClick={handleButtonClick} className="content_title" >
           {post.title}
         </Typography>
-
-        <Typography >
+        <Typography className="content_sub_title" >
+          Overview
+        </Typography>
+        <Typography className="content_details" >
           {post.overview}
         </Typography>
-        <Typography >
+        <Typography className="content_sub_title" >
+          Description
+        </Typography>
+        <Typography className="content_details">
           {post.description}
         </Typography>
-        <Typography >
+        <Typography className="content_sub_title" >
+          Standard Price
+        </Typography>
+        <Typography className="content_details" >
+         
           {post.standard_price}
           
         </Typography>
-        <Typography >
-          {post.additional_charges}
+        <Typography className="content_sub_title" >
+          Additional Charges
+        </Typography>
+        <Typography className="content_details" >
+          {post.additional_charges}          
+        </Typography>
+        <Typography className="content_sub_title" >
+          Terms & Conditions
+        </Typography>
+        <Typography className="content_details">
+          {post.terms_conditions}
           
         </Typography>
-        <Typography >
-          {post.terms_conditions}oo
-          
+        
+        <Typography className="content_status">
+          {post.status}          
         </Typography>
-        <Typography className="article_des">
-          {post.room_type}          
-        </Typography>
+        </Box>
         </Box>
      
      

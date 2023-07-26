@@ -64,8 +64,6 @@ const RoomContent = () => {
              <Typography className="home_content_title" >
     abc.com Rooms
     </Typography>
-
-      {/* All Prompts */}
       <Box>
       {searchText ? (
         <RoomCardList data={searchedResults} handleTagClick={handleTagClick} />

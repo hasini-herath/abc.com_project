@@ -25,8 +25,8 @@ console.log("cccc")
 
   return (
     <Profile
-      name={userName}
-      desc={`Welcome to 's personalized profile page. Explore 's exceptional prompts and be inspired by the power of their imagination`}
+      //name={userName}
+     // desc={`Welcome to 's personalized profile page. Explore 's exceptional prompts and be inspired by the power of their imagination`}
       data={userPosts}
     />
   );

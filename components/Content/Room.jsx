@@ -72,18 +72,17 @@ const RoomContent = () => {
             <TextField className="content_search"
               type='text'
               size="small"
-              placeholder='Search for a tag or a username'
               required
             />
 
           </Box>
-          
+          <Box className='content_left_box'>
+<h1></h1>
+          </Box>
         </Box>
-
-        {/* All Prompts */}
         <Box >
           <Box className='flex'>
-          <Box className='content_navbar'>
+          <Box >
           <Link href='admin/content/list' className="content-links"
                  >Popular
                 </Link>
@@ -100,24 +99,6 @@ const RoomContent = () => {
                 <Link href='/' className="content-links"
                >Luxury
                 </Link>
-            </Box>
-            <Box className='content_sort'>
-            <FormControl fullWidth>
-              <InputLabel variant="standard" >
-                Sort by
-              </InputLabel>
-              <Select 
-              
-              className="content_select"
-              size="small"
-                defaultValue={30}
-               
-              >
-                <option >Available</option>
-                <option >Not Available</option>
-                <option value={30}>Booked</option>
-              </Select>
-            </FormControl>
             </Box>
           </Box>
 

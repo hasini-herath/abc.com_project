@@ -13,20 +13,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body >
-      <Box sx={{ margin: '80px' }}>
-        <Provider>
-        <div className="main">
-          <div className="gradient"/>
-        </div>
-        <main className="app"> 
-        <Nav/>
-        {children}
-        </main>
-        </Provider>
+        <Box sx={{ margin: '80px' }}>
+          <Provider>
+            <div className="main">
+              <div />
+            </div>
+            <main>
+              <Nav />
+              {children}
+            </main>
+          </Provider>
         </Box>
-        <Footer/>
-        </body>
-       
+        <Footer />
+      </body>
     </html>
   )
 }

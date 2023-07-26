@@ -5,7 +5,7 @@ const Profile = ({ name, desc, data, }) => {
   return (
     <section >
       <h1 >
-        <span > Profile</span>
+        
       </h1>
       <p >{desc}</p>
 
