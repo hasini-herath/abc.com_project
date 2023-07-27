@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -12,16 +11,12 @@ import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-
 const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
   const [showhide, setShowhide] = useState('');
-
   const handleshowhide = (event) => {
     const getuser = event.target.value;
     setShowhide(getuser);
-
   }
-
 
   return (
     <section className="room_body">
@@ -30,20 +25,17 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
       </Typography>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
-
           <Grid item xs={12} >
             <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
-                
-                
-              <NativeSelect
- value={post.content_type}
- id="content_type"
-  onChange={(e) => {
-    setPost({ ...post, content_type: e.target.value });
-    handleshowhide(e);
-  }}
->
+                <NativeSelect
+                  value={post.content_type}
+                  id="content_type"
+                  onChange={(e) => {
+                    setPost({ ...post, content_type: e.target.value });
+                    handleshowhide(e);
+                  }}
+                >
                   <option value=''>--Select Content Type--</option>
                   <option value='room'>Room</option>
                   <option value='meal'>Meal</option>
@@ -53,7 +45,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               </FormControl>
             </Box>
           </Grid>
-
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -67,7 +58,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               variant="standard"
             />
           </Grid>
-
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -81,7 +71,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               variant="standard"
             />
           </Grid>
-
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -95,13 +84,11 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               variant="standard"
             />
           </Grid>
-
           {/* when customer select room */}
           {
             showhide === 'room' && (
               <div className="grid-container">
                 <TextField
-             
                   id="room_type"
                   value={post.room_type}
                   onChange={(e) => setPost({ ...post, room_type: e.target.value })}
@@ -111,19 +98,7 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   autoComplete="shipping address-line2"
                   variant="standard"
                 />
-                 <TextField
-                 
-                 id="size"
-                 value={post.size}
-                 onChange={(e) => setPost({ ...post, size: e.target.value })}
-                 name="size"
-                 label="size"
-                 fullWidth
-                 autoComplete="shipping address-line2"
-                 variant="standard"
-               />
-                    <TextField
-                 
+                <TextField
                   id="size"
                   value={post.size}
                   onChange={(e) => setPost({ ...post, size: e.target.value })}
@@ -134,7 +109,16 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-                
+                  id="size"
+                  value={post.size}
+                  onChange={(e) => setPost({ ...post, size: e.target.value })}
+                  name="size"
+                  label="size"
+                  fullWidth
+                  autoComplete="shipping address-line2"
+                  variant="standard"
+                />
+                <TextField
                   id="bed_description"
                   value={post.bed_description}
                   onChange={(e) => setPost({ ...post, bed_description: e.target.value })}
@@ -145,7 +129,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-               
                   id="amenities"
                   value={post.amenities}
                   onChange={(e) => setPost({ ...post, amenities: e.target.value })}
@@ -156,7 +139,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                   variant="standard"
                 />
                 <TextField
-             
                   id="number_guest"
                   value={post.number_guest}
                   onChange={(e) => setPost({ ...post, number_guest: e.target.value })}
@@ -167,7 +149,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                 />
               </div>
             )}
-
           {/* when customer select meal */}
           {
             showhide === 'meal' && (
@@ -236,8 +217,8 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               </div>
             )}
 
-  {/* when customer select service */}
-  {
+          {/* when customer select service */}
+          {
             showhide === 'service' && (
               <div className="grid-container">
                 <TextField
@@ -264,7 +245,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
                 />
               </div>
             )}
-
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -304,7 +284,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
               variant="standard"
             />
           </Grid>
-
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -319,9 +298,6 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
             />
           </Grid>
         </Grid>
-
-
-
         <Stack className='room_btn'>
           <Button className='room_addbtn'
             type='submit'
@@ -329,12 +305,10 @@ const Form = ({ post, setPost, type, handleSubmit, submitting }) => {
             endIcon={<SendIcon />}>
             {submitting ? `${type}ing...` : type}
           </Button>
-
           <Button className='room_cancelbtn' href='/'>Cancel</Button>
         </Stack>
       </form>
     </section>
   );
 }
-
 export default Form;

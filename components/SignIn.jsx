@@ -10,11 +10,8 @@ import { signIn, useSession, getProviders } from 'next-auth/react';
 import Home from "@app/page";
 
 const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
-
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
-
-
   useEffect(() => {
     (async () => {
       const res = await getProviders();
@@ -23,7 +20,6 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
   }, []);
 
   return (
-
     <Typography >
       {session?.user ? (
         <>
@@ -66,14 +62,12 @@ const SignIn = ({ type, post, setPost, submitting, handleSubmit }) => {
                     <Link className="forgot_password">
                       Forgot Password
                     </Link>
-
                     <Button
                       type="submit"
                       disabled={submitting}
                       className="signin_btn"
                     >
                       {submitting ? `${type}ing...` : type}
-                      
                     </Button>
                   </form>
                   <Typography className="center_title">

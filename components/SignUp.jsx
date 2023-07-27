@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -11,11 +10,8 @@ import Home from "@app/page";
 import Box from '@mui/material/Box';
 
 const SignUp = ({ type, post, setPost, submitting, handleSubmit }) => {
-
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
-
-
   useEffect(() => {
     (async () => {
       const res = await getProviders();
@@ -24,7 +20,6 @@ const SignUp = ({ type, post, setPost, submitting, handleSubmit }) => {
   }, []);
 
   return (
-
     <Typography >
       {session?.user ? (
         <>
@@ -41,7 +36,7 @@ const SignUp = ({ type, post, setPost, submitting, handleSubmit }) => {
                 <Box>
                   <form onSubmit={handleSubmit} className="form_register">
                     <div>
-                      <label htmlFor="email"  className="signup_label">Email:</label>
+                      <label htmlFor="email" className="signup_label">Email:</label>
                       <TextField className="register_fields"
                         fullWidth
                         size="small"
@@ -53,7 +48,7 @@ const SignUp = ({ type, post, setPost, submitting, handleSubmit }) => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="password"  className="signup_label">Password:</label>
+                      <label htmlFor="password" className="signup_label">Password:</label>
                       <TextField className="register_fields"
                         fullWidth
                         size="small"
